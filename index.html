@@ -10,8 +10,8 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
   --tb:#1A1F2E;--sb:#0D1B2E;--sbh:rgba(255,255,255,.07);
-  --teal:#00B37D;--teal2:#009968;--teal-bg:#E8F8F2;--teal-bd:#9FD9C0;
-  --gdot:#00C27A;
+  --teal:#00B388;--teal2:#009970;--teal-bg:#E8F8F2;--teal-bd:#9FD9C0;
+  --gdot:#00B388;
   --cg:#2DB87A;--cgf:rgba(45,184,122,0.12);
   --tour-bg:#C5EDE4;--tour-title:#0D1F3C;--tour-body:#1a3d30;--tour-btn:#1C2B3A;
   --white:#fff;--bg:#F4F5F7;--card:#fff;
@@ -200,8 +200,12 @@ tbody td strong{color:var(--t1);font-weight:600}
 <div id="topbar">
   <div class="tb-menu"><svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></div>
   <a class="tb-logo" href="#" onclick="go('overview');return false">
-    <svg class="tb-logo-z" viewBox="0 0 22 22" fill="none"><rect width="22" height="22" rx="4" fill="#00B37D"/><path d="M4 5h14L10.5 17H4V5z" fill="white"/><path d="M18 17H4L12 5h6v12z" fill="rgba(255,255,255,.25)"/></svg>
-    <span class="tb-logo-name">ZUORA</span><span class="tb-logo-prod">billing</span>
+    <svg class="tb-logo-z" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="32" height="32" rx="6" fill="#00B388"/>
+      <path d="M7 8h18L14.5 24H7V8z" fill="white"/>
+      <path d="M25 24H7L16.5 8H25v16z" fill="rgba(255,255,255,.2)"/>
+    </svg>
+    <span class="tb-logo-name" style="font-size:15px;font-weight:800;letter-spacing:.3px">ZUORA</span><span class="tb-logo-prod">billing</span>
   </a>
   <div class="tb-search">
     <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
@@ -278,11 +282,11 @@ tbody td strong{color:var(--t1);font-weight:600}
     <div class="kcard"><div class="ks" style="background:var(--green)"></div><div class="kl">Revenue Recovered</div><div class="kv good">$23,100</div><div class="kd up">▲ $3,200 vs last period</div><div class="rmeter"><div class="rfill" style="width:32%;background:var(--cg)"></div></div><div class="kh">Potential w/ auto-rep: <strong style="color:var(--cg)">$68,400</strong></div></div>
   </div>
   <div class="grid g21">
-    <div class="card cp"><div class="ct">Chargeback volume &amp; ratio trend</div><div class="csub">Monthly — Jan 2025 → Mar 2025</div><div style="height:185px"><canvas id="cTrend"></canvas></div><div class="leg"><div class="li"><div class="ld" style="background:rgba(220,38,38,.3)"></div>CB count</div><div class="li"><div class="ld" style="background:var(--cg)"></div>CB ratio %</div></div></div>
-    <div class="card cp"><div class="ct">Dispute outcomes</div><div class="csub">Last 90 days</div><div style="height:150px"><canvas id="cOutcomes"></canvas></div><div class="leg" style="flex-direction:column;gap:5px;margin-top:8px"><div class="li"><div class="ld" style="background:#DC2626"></div>Uncontested — $47,200 (66%)</div><div class="li"><div class="ld" style="background:#F59E0B"></div>Contested, lost — $16,800 (23%)</div><div class="li"><div class="ld" style="background:#2DB87A"></div>Won / recovered — $23,100 (11%)</div></div></div>
+    <div class="card cp"><div class="ct">Chargeback volume &amp; ratio trend</div><div class="csub">Monthly — Jan 2025 → Mar 2025</div><div style="height:200px"><canvas id="cTrend"></canvas></div><div class="leg"><div class="li"><div class="ld" style="background:rgba(220,38,38,.3)"></div>CB count</div><div class="li"><div class="ld" style="background:var(--cg)"></div>CB ratio %</div></div></div>
+    <div class="card cp"><div class="ct">Dispute outcomes</div><div class="csub">Last 90 days</div><div style="height:170px"><canvas id="cOutcomes"></canvas></div><div class="leg" style="flex-direction:column;gap:5px;margin-top:8px"><div class="li"><div class="ld" style="background:#DC2626"></div>Uncontested — $47,200 (66%)</div><div class="li"><div class="ld" style="background:#F59E0B"></div>Contested, lost — $16,800 (23%)</div><div class="li"><div class="ld" style="background:#2DB87A"></div>Won / recovered — $23,100 (11%)</div></div></div>
   </div>
   <div class="grid g3">
-    <div class="card cp"><div class="ct">Top reason codes</div><div class="csub">By volume — last 90 days</div><div style="height:165px"><canvas id="cReasons"></canvas></div></div>
+    <div class="card cp"><div class="ct">Top reason codes</div><div class="csub">By volume — last 90 days</div><div style="height:175px"><canvas id="cReasons"></canvas></div></div>
     <div class="card cp"><div class="ct">Fraud by geography</div><div class="csub">Chargebacks by origin country</div>
       <div class="geo-item"><span style="font-size:15px;flex-shrink:0">🇺🇸</span><div style="flex:1"><div style="font-size:12px;font-weight:600;color:var(--t1)">United States</div><div class="geo-bar"><div class="geo-fill" style="width:72%;background:var(--red)"></div></div></div><span style="font-size:11px;color:var(--red);font-weight:600;width:32px;text-align:right">72%</span></div>
       <div class="geo-item"><span style="font-size:15px;flex-shrink:0">🇬🇧</span><div style="flex:1"><div style="font-size:12px;font-weight:600;color:var(--t1)">United Kingdom</div><div class="geo-bar"><div class="geo-fill" style="width:12%;background:var(--yellow)"></div></div></div><span style="font-size:11px;color:var(--yellow);font-weight:600;width:32px;text-align:right">12%</span></div>
@@ -303,8 +307,8 @@ tbody td strong{color:var(--t1);font-weight:600}
     </div>
   </div>
   <div class="grid g2">
-    <div class="card cp"><div class="ct">CB rate by product / plan</div><div class="csub">Which products drive the most disputes</div><div style="height:165px"><canvas id="cProducts"></canvas></div></div>
-    <div class="card cp"><div class="ct">Revenue recovery opportunity</div><div class="csub">Current vs auto-representment potential</div><div style="height:165px"><canvas id="cRecovery"></canvas></div>
+    <div class="card cp"><div class="ct">CB rate by product / plan</div><div class="csub">Which products drive the most disputes</div><div style="height:175px"><canvas id="cProducts"></canvas></div></div>
+    <div class="card cp"><div class="ct">Revenue recovery opportunity</div><div class="csub">Current vs auto-representment potential</div><div style="height:130px"><canvas id="cRecovery"></canvas></div>
       <div style="margin-top:10px;background:linear-gradient(135deg,#0D1B2E,#1a3a2e);border-radius:var(--r);padding:10px 13px">
         <div style="font-size:11.5px;font-weight:700;color:#fff;margin-bottom:3px">💡 At our <span style="color:var(--gdot)">68% win rate</span> you could recover <span style="color:var(--gdot)">$68,400/mo</span></div>
         <button class="btn btn-up btn-sm" style="width:100%;justify-content:center;margin-top:8px" onclick="go('api')">⚡ Activate Now — First Month Free</button>
@@ -358,7 +362,7 @@ tbody td strong{color:var(--t1);font-weight:600}
       <div style="margin-top:12px;display:flex;gap:8px"><button class="btn btn-g btn-sm">+ Upload evidence</button><button class="btn btn-t btn-sm">Submit to Visa →</button></div>
     </div>
     <div class="card cp"><div class="ct">Win probability estimator</div><div class="csub">Based on reason code, evidence &amp; network rules</div>
-      <div style="padding:14px;background:var(--gbg);border:1px solid var(--gbd);border-radius:var(--r);margin-bottom:10px;text-align:center">
+      <div style="padding:10px;background:var(--gbg);border:1px solid var(--gbd);border-radius:var(--r);margin-bottom:8px;text-align:center">
         <div style="font-size:36px;font-weight:800;color:var(--green)">74%</div>
         <div style="font-size:12px;color:var(--green);font-weight:600">Estimated win probability</div>
         <div style="font-size:11px;color:var(--t3);margin-top:3px">CB-00291 · Acme Corp · Visa 10.4</div>
@@ -373,7 +377,7 @@ tbody td strong{color:var(--t1);font-weight:600}
 
 <!-- ERT -->
 <div class="view" id="view-ert">
-  <div class="ph"><div><div class="pt">ERT Notifications</div><div class="ps">Early Resolution Tool — pre-dispute signals from Visa &amp; Mastercard</div></div><div class="pa"><button class="btn btn-up" onclick="go('api')">⚡ Enable Auto-Refund Rules</button></div></div>
+  <div class="ph"><div><div class="pt">ERT Notifications</div><div class="ps">Early Resolution Tool — pre-dispute signals from Visa &amp; Mastercard</div></div></div>
   <div style="background:linear-gradient(135deg,#0D1B2E,#1a3a2e);border-radius:var(--r2);padding:11px 18px;margin-bottom:14px;display:flex;align-items:center;gap:12px">
     <span style="font-size:18px">⚡</span>
     <span style="font-size:12.5px;color:rgba(255,255,255,.8);flex:1">ERT gives you a <strong style="color:var(--gdot)">72-hour window</strong> to refund before a dispute escalates. Auto-refund rules handle this automatically, preventing chargebacks.</span>
@@ -396,7 +400,7 @@ tbody td strong{color:var(--t1);font-weight:600}
   </div>
   <div class="card cp">
     <div class="ct">ERT resolution history</div><div class="csub">Last 14 days</div>
-    <div style="height:150px"><canvas id="cErt"></canvas></div>
+    <div style="height:170px"><canvas id="cErt"></canvas></div>
     <div class="leg"><div class="li"><div class="ld" style="background:var(--cg)"></div>Resolved (CB prevented)</div><div class="li"><div class="ld" style="background:var(--red)"></div>Escalated to chargeback</div></div>
   </div>
 </div>
@@ -458,8 +462,8 @@ tbody td strong{color:var(--t1);font-weight:600}
     </div>
   </div>
   <div class="grid g2">
-    <div class="card cp"><div class="ct">Win/loss trend</div><div class="csub">Monthly contested case outcomes — last 6 months</div><div style="height:155px"><canvas id="cWinLoss"></canvas></div><div class="leg"><div class="li"><div class="ld" style="background:var(--cg)"></div>Won</div><div class="li"><div class="ld" style="background:var(--red)"></div>Lost</div><div class="li"><div class="ld" style="background:var(--yellow)"></div>Pending</div></div></div>
-    <div class="card cp"><div class="ct">CB volume by card network</div><div class="csub">Last 90 days — dispute distribution</div><div style="height:155px"><canvas id="cNetwork"></canvas></div><div class="leg"><div class="li"><div class="ld" style="background:#1D4ED8"></div>Visa 52%</div><div class="li"><div class="ld" style="background:#EA580C"></div>Mastercard 31%</div><div class="li"><div class="ld" style="background:#7C3AED"></div>Amex 12%</div><div class="li"><div class="ld" style="background:#D1D5DB"></div>Discover 5%</div></div></div>
+    <div class="card cp"><div class="ct">Win/loss trend</div><div class="csub">Monthly contested case outcomes — last 6 months</div><div style="height:175px"><canvas id="cWinLoss"></canvas></div><div class="leg"><div class="li"><div class="ld" style="background:var(--cg)"></div>Won</div><div class="li"><div class="ld" style="background:var(--red)"></div>Lost</div><div class="li"><div class="ld" style="background:var(--yellow)"></div>Pending</div></div></div>
+    <div class="card cp"><div class="ct">CB volume by card network</div><div class="csub">Last 90 days — dispute distribution</div><div style="height:175px"><canvas id="cNetwork"></canvas></div><div class="leg"><div class="li"><div class="ld" style="background:#1D4ED8"></div>Visa 52%</div><div class="li"><div class="ld" style="background:#EA580C"></div>Mastercard 31%</div><div class="li"><div class="ld" style="background:#7C3AED"></div>Amex 12%</div><div class="li"><div class="ld" style="background:#D1D5DB"></div>Discover 5%</div></div></div>
   </div>
 </div>
 
@@ -540,6 +544,10 @@ tbody td strong{color:var(--t1);font-weight:600}
       <div class="sr"><span style="font-size:12px;color:var(--t2)">✅ SLA guarantee (99.9%)</span></div>
       <button class="btn btn-n" style="width:100%;justify-content:center;margin-top:12px">Talk to sales →</button>
     </div>
+  </div>
+  <div class="grid g2" style="margin-bottom:16px">
+    <div class="card cp"><div class="ct">Recovery: manual vs auto-representment</div><div class="csub">Monthly revenue recovered — same dispute volume</div><div style="height:180px"><canvas id="cApiCompare"></canvas></div><div class="leg"><div class="li"><div class="ld" style="background:#F59E0B"></div>Manual (current)</div><div class="li"><div class="ld" style="background:#00B388"></div>With auto-rep</div></div></div>
+    <div class="card cp"><div class="ct">Win rate improvement over time</div><div class="csub">Industry benchmark vs auto-representment customers</div><div style="height:180px"><canvas id="cApiWinrate"></canvas></div><div class="leg"><div class="li"><div class="ld" style="background:#E5E7EB"></div>Industry avg</div><div class="li"><div class="ld" style="background:#00B388"></div>Auto-rep customers</div></div></div>
   </div>
   <div class="grid g2">
     <div class="card cp">
@@ -672,6 +680,24 @@ function initCharts(p) {
         scales:{x:{stacked:true,grid:{display:false},ticks:TK},y:{stacked:true,grid:{color:GR},ticks:TK,min:0,max:8}}}});
   }
 
+  if (p === 'api') {
+    mc('cApiCompare', {type:'bar', data:{
+      labels:['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],
+      datasets:[
+        {label:'Manual',data:[8200,9100,8800,9400,8600,9200,9800,9100,9600,8900,9300,9700],backgroundColor:'#F59E0B',borderRadius:3},
+        {label:'Auto-rep',data:[31200,34600,33500,35800,32700,35100,37300,34600,36500,33900,35400,36900],backgroundColor:'#00B388',borderRadius:3}
+      ]},
+      options:{responsive:true,maintainAspectRatio:false,layout:{padding:0},plugins:{legend:{display:false}},
+        scales:{x:{grid:{display:false},ticks:TK},y:{grid:{color:GR},ticks:{color:'#9CA3AF',font:{size:10,family:'Plus Jakarta Sans'},callback:function(v){return '$'+Math.round(v/1000)+'K';}},beginAtZero:true}}}});
+    mc('cApiWinrate', {type:'line', data:{
+      labels:['Month 1','Month 2','Month 3','Month 4','Month 5','Month 6'],
+      datasets:[
+        {label:'Industry avg',data:[28,29,28,30,29,30],borderColor:'#D1D5DB',backgroundColor:'transparent',tension:0.4,borderWidth:2,pointRadius:3,borderDash:[4,4]},
+        {label:'Auto-rep',data:[34,48,57,63,66,68],borderColor:'#00B388',backgroundColor:'rgba(0,179,136,0.1)',tension:0.4,fill:true,borderWidth:2.5,pointRadius:4,pointBackgroundColor:'#00B388'}
+      ]},
+      options:{responsive:true,maintainAspectRatio:false,layout:{padding:0},plugins:{legend:{display:false}},
+        scales:{x:{grid:{display:false},ticks:TK},y:{grid:{color:GR},ticks:{color:'#9CA3AF',font:{size:10,family:'Plus Jakarta Sans'},callback:function(v){return v+'%';}},min:20,max:75}}}});
+  }
   if (p === 'reports') {
     mc('cWinLoss', {type:'bar', data:{labels:['Oct','Nov','Dec','Jan','Feb','Mar'],
       datasets:[
@@ -690,13 +716,13 @@ function initCharts(p) {
 
 // TOUR
 var STEPS = [
-  {title:'Welcome to Zuora Disputes',body:'This is your chargeback command center, built natively inside Zuora. Monitor your dispute health, fight chargebacks, and see where you are losing revenue.',target:null},
-  {title:'Your chargeback health score',body:'Your CB-to-transaction ratio is 1.02% — above Visa\'s 1.0% threshold. The red indicators show where you need to act immediately to avoid the Visa Dispute Monitoring Program.',target:'#view-overview .krow'},
-  {title:'Revenue you are losing right now',body:'$47,200/month in chargebacks were never contested. That money is gone forever unless you activate auto-representment.',target:'#view-overview .upbanner'},
-  {title:'Fraud by geography and reason code',body:'72% of your chargebacks originate from the US, and 10.4 Fraud is your number one reason code. These charts help you identify patterns and prevent future disputes.',target:'#view-overview .grid.g3'},
-  {title:'Fight cases before deadlines expire',body:'Open cases have hard deadlines. After they expire the money is gone. Cases marked with fire expire within 7 days. Click Fight to submit evidence.',target:'#tRecent'},
-  {title:'Navigate to any section',body:'Use the sidebar under Disputes to access Case Management, ERT Notifications, Alerts, Reports, Webhooks, and API Connect.',target:'#sub-disputes'},
-  {title:'Activate auto-representment',body:'Click API Connect to see pricing and activate automatic chargeback recovery. First month free. Average 68% win rate. Zero manual effort.',target:null}
+  {title:'Welcome to Zuora Disputes',body:'Your chargeback command center built natively inside Zuora. Monitor dispute health, fight chargebacks, and recover lost revenue.',target:null},
+  {title:'Your chargeback health at a glance',body:'Five KPI cards show your CB ratio, total chargebacks, uncontested revenue lost, win rate, and recovered revenue — all color-coded red, yellow, or green based on health.',target:null},
+  {title:'You are losing $47,200/month',body:'189 chargebacks were never contested. That revenue is gone forever — unless you activate auto-representment to fight them automatically.',target:null},
+  {title:'Fraud patterns: geography and reason codes',body:'72% of your chargebacks come from the US and 10.4 Fraud is the top reason code. Use these charts to spot patterns and prevent future disputes.',target:null},
+  {title:'Fight cases before deadlines',body:'Every open case has a hard deadline. Cases marked with fire expire within 7 days. After expiry the money is gone. Click Fight on any row to submit evidence.',target:null},
+  {title:'Navigate to any section',body:'Use the Disputes sidebar to access Case Management, ERT Notifications, Alerts, Reports, Webhooks, and API Connect.',target:'#sub-disputes'},
+  {title:'Activate auto-representment',body:'Go to API Connect to see pricing and activate automatic chargeback recovery. First month free. Average 68% win rate. Zero manual effort.',target:null}
 ];
 
 var TOV = document.getElementById('tour-ov');
