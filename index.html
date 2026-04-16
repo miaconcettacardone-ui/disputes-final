@@ -178,7 +178,10 @@ tbody td strong{color:var(--t1);font-weight:600}
 .api-field{background:#FAFAFA;border:1px solid var(--bd);border-radius:var(--r);padding:9px 13px;font-family:var(--mono);font-size:12px;color:var(--t2);display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
 #tour-ov{position:fixed;inset:0;z-index:9999;pointer-events:none;display:none}
 .tour-spot{position:absolute;border-radius:var(--r2);pointer-events:none;box-shadow:0 0 0 9999px rgba(0,0,0,.38);transition:all .3s ease}
-.tour-card{position:fixed;background:var(--tour-bg);border-radius:10px;padding:20px 22px 16px;width:320px;pointer-events:all;box-shadow:0 4px 24px rgba(0,0,0,.15);bottom:24px;right:24px}
+.tour-card{position:fixed;background:var(--tour-bg);border-radius:10px;padding:20px 22px 16px;width:300px;pointer-events:all;box-shadow:0 4px 24px rgba(0,0,0,.15);transition:all .3s ease}
+.tour-card.pos-right::before{content:"";position:absolute;top:22px;left:-8px;width:0;height:0;border-top:8px solid transparent;border-bottom:8px solid transparent;border-right:8px solid var(--tour-bg)}
+.tour-card.pos-left::before{content:"";position:absolute;top:22px;right:-8px;width:0;height:0;border-top:8px solid transparent;border-bottom:8px solid transparent;border-left:8px solid var(--tour-bg)}
+.tour-card.pos-below::before{content:"";position:absolute;top:-8px;left:22px;width:0;height:0;border-left:8px solid transparent;border-right:8px solid transparent;border-bottom:8px solid var(--tour-bg)}
 .tour-num{font-size:11px;color:var(--tour-body);margin-bottom:8px;display:flex;align-items:center;gap:8px}
 .tour-back{background:none;border:none;cursor:pointer;color:var(--tour-body);font-size:14px;padding:0;font-family:var(--f)}
 .tour-title{font-size:15px;font-weight:800;color:var(--tour-title);margin-bottom:7px;line-height:1.3}
@@ -253,7 +256,7 @@ tbody td strong{color:var(--t1);font-weight:600}
 <div class="view active" id="view-overview">
   <div class="ph">
     <div><div class="pt">Chargeback Analytics</div><div class="ps">NOAM Demo Tenant · Last 90 days · Updated 2 min ago</div></div>
-    <div class="pa"><select class="sel"><option>Last 90 days</option><option>Last 30 days</option><option>Last 6 months</option><option>YTD</option></select><button class="btn btn-up" onclick="go('api')">⚡ Upgrade — Recover Revenue</button></div>
+    <div class="pa"><select class="sel"><option>Last 90 days</option><option>Last 30 days</option><option>Last 6 months</option><option>YTD</option></select></div>
   </div>
   <div class="upbanner">
     <div class="upbanner-icon">🛡️</div>
@@ -706,21 +709,44 @@ var TSKIP = document.getElementById('tskip');
 
 function renderTour(i) {
   var s = STEPS[i];
+  var TC = document.getElementById('tcard');
   TTITLE.textContent = s.title;
   TBODY.textContent = s.body;
   var backHtml = i > 0 ? '<button class="tour-back" onclick="prevTour()">← Back</button> ' : '';
   TNUM.innerHTML = backHtml + (i+1) + ' / ' + STEPS.length;
   TNEXT.textContent = i === STEPS.length - 1 ? 'Get started' : 'Next';
+
   if (s.target) {
     var el = document.querySelector(s.target);
     if (el) {
       var r = el.getBoundingClientRect();
       var P = 4;
       TSPOT.style.cssText = 'left:'+(r.left-P)+'px;top:'+(r.top-P)+'px;width:'+(r.width+P*2)+'px;height:'+(r.height+P*2)+'px';
+      var cw = 308;
+      var ch = 200;
+      var margin = 16;
+      var ww = window.innerWidth;
+      var wh = window.innerHeight;
+      TC.className = 'tour-card';
+      // Try right side first
+      if (r.right + margin + cw < ww) {
+        TC.classList.add('pos-right');
+        TC.style.cssText = 'left:'+(r.right+margin)+'px;top:'+Math.max(8,Math.min(r.top, wh-ch-8))+'px;width:'+cw+'px';
+      } else if (r.left - margin - cw > 0) {
+        // Left side
+        TC.classList.add('pos-left');
+        TC.style.cssText = 'left:'+(r.left-margin-cw)+'px;top:'+Math.max(8,Math.min(r.top, wh-ch-8))+'px;width:'+cw+'px';
+      } else {
+        // Below
+        TC.classList.add('pos-below');
+        TC.style.cssText = 'left:'+Math.max(8,Math.min(r.left, ww-cw-8))+'px;top:'+(r.bottom+margin)+'px;width:'+cw+'px';
+      }
       return;
     }
   }
   TSPOT.style.cssText = 'left:0;top:0;width:0;height:0';
+  TC.className = 'tour-card';
+  TC.style.cssText = 'left:50%;top:50%;transform:translate(-50%,-50%);width:320px';
 }
 
 function nextTour() {
