@@ -4,7 +4,7 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>Zuora · Disputes</title>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -26,7 +26,7 @@
   --r:6px;--r2:8px;
   --sh:0 1px 3px rgba(0,0,0,.07),0 1px 2px rgba(0,0,0,.04);
   --sh2:0 4px 16px rgba(0,0,0,.1);
-  --f:"Plus Jakarta Sans",system-ui,sans-serif;
+  --f:"DM Sans","Plus Jakarta Sans",system-ui,sans-serif;
   --mono:"JetBrains Mono",monospace;
 }
 html,body{height:100%;background:var(--bg);color:var(--t1);font-family:var(--f);font-size:13px;line-height:1.5;overflow:hidden}
@@ -35,7 +35,7 @@ html,body{height:100%;background:var(--bg);color:var(--t1);font-family:var(--f);
 .tb-menu{width:28px;height:28px;display:flex;align-items:center;justify-content:center;cursor:pointer;border-radius:4px;color:rgba(255,255,255,.55)}
 .tb-menu:hover{background:rgba(255,255,255,.08)}
 .tb-logo{display:flex;align-items:center;gap:7px;margin-right:8px;text-decoration:none}
-.tb-logo-z{width:22px;height:22px}
+.tb-logo-z{width:28px;height:22px}
 .tb-logo-name{font-size:14px;font-weight:800;color:#fff;letter-spacing:.5px}
 .tb-logo-prod{font-size:11px;color:var(--teal);margin-left:1px;font-weight:500}
 .tb-search{flex:1;max-width:360px;background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.1);border-radius:var(--r);padding:0 12px;height:32px;display:flex;align-items:center;gap:8px}
@@ -182,6 +182,7 @@ tbody td strong{color:var(--t1);font-weight:600}
 .tour-card.pos-right::before{content:"";position:absolute;top:22px;left:-8px;width:0;height:0;border-top:8px solid transparent;border-bottom:8px solid transparent;border-right:8px solid var(--tour-bg)}
 .tour-card.pos-left::before{content:"";position:absolute;top:22px;right:-8px;width:0;height:0;border-top:8px solid transparent;border-bottom:8px solid transparent;border-left:8px solid var(--tour-bg)}
 .tour-card.pos-below::before{content:"";position:absolute;top:-8px;left:22px;width:0;height:0;border-left:8px solid transparent;border-right:8px solid transparent;border-bottom:8px solid var(--tour-bg)}
+.tour-card.pos-above::after{content:"";position:absolute;bottom:-8px;left:22px;width:0;height:0;border-left:8px solid transparent;border-right:8px solid transparent;border-top:8px solid var(--tour-bg)}
 .tour-num{font-size:11px;color:var(--tour-body);margin-bottom:8px;display:flex;align-items:center;gap:8px}
 .tour-back{background:none;border:none;cursor:pointer;color:var(--tour-body);font-size:14px;padding:0;font-family:var(--f)}
 .tour-title{font-size:15px;font-weight:800;color:var(--tour-title);margin-bottom:7px;line-height:1.3}
@@ -200,12 +201,11 @@ tbody td strong{color:var(--t1);font-weight:600}
 <div id="topbar">
   <div class="tb-menu"><svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></div>
   <a class="tb-logo" href="#" onclick="go('overview');return false">
-    <svg class="tb-logo-z" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect width="32" height="32" rx="6" fill="#00B388"/>
-      <path d="M7 8h18L14.5 24H7V8z" fill="white"/>
-      <path d="M25 24H7L16.5 8H25v16z" fill="rgba(255,255,255,.2)"/>
+    <svg class="tb-logo-z" viewBox="0 0 36 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h36L22 28H0V0z" fill="#00B388"/>
+      <path d="M36 28H0L15 0h21v28z" fill="rgba(0,0,0,.15)"/>
     </svg>
-    <span class="tb-logo-name" style="font-size:15px;font-weight:800;letter-spacing:.3px">ZUORA</span><span class="tb-logo-prod">billing</span>
+    <span class="tb-logo-name" style="font-size:14px;font-weight:800;letter-spacing:1.5px;font-family:'Plus Jakarta Sans',sans-serif">ZUORA</span><span class="tb-logo-prod">billing</span>
   </a>
   <div class="tb-search">
     <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
@@ -640,7 +640,7 @@ function initCharts(p) {
       ]},
       options:{responsive:true,maintainAspectRatio:false,layout:{padding:0},plugins:{legend:{display:false}},
         scales:{x:{grid:{display:false},ticks:TK},
-          y:{grid:{color:GR},ticks:{color:'#9CA3AF',font:{size:10,family:'Plus Jakarta Sans'},callback:function(v){return v+' CBs';}},position:'left',min:160,max:320},
+          y:{grid:{color:GR},ticks:{color:'#9CA3AF',font:{size:10,family:'Plus Jakarta Sans'},callback:function(v){return v+' CBs';}},position:'left',min:150,suggestedMax:310},
           y2:{grid:{display:false},ticks:{color:'#9CA3AF',font:{size:10,family:'Plus Jakarta Sans'},callback:function(v){return v+'%';}},position:'right',min:0.6,max:1.2}}}});
 
     mc('cOutcomes', {type:'doughnut', data:{labels:['Uncontested','Contested lost','Won'],
@@ -650,8 +650,8 @@ function initCharts(p) {
     mc('cReasons', {type:'bar', data:{
       labels:['10.4 Fraud','13.1 Not rcvd','4853 Service','10.5 Visa','41 Cancelled','Other'],
       datasets:[{data:[112,58,44,31,24,15],backgroundColor:['#DC2626','#EF4444','#F97316','#F59E0B','#FCD34D','#D1D5DB'],borderRadius:4}]},
-      options:{responsive:true,maintainAspectRatio:false,indexAxis:'y',layout:{padding:0},plugins:{legend:{display:false}},
-        scales:{x:{grid:{color:GR},ticks:TK},y:{grid:{display:false},ticks:TK}}}});
+      options:{responsive:true,maintainAspectRatio:false,layout:{padding:0},plugins:{legend:{display:false}},indexAxis:'y',
+        scales:{x:{grid:{color:GR},ticks:TK,beginAtZero:true},y:{grid:{display:false},ticks:TK}}}});
 
     mc('cProducts', {type:'bar', data:{
       labels:['Enterprise','Professional','Starter','API Usage','Add-ons'],
@@ -660,7 +660,7 @@ function initCharts(p) {
         {label:'Win rate',data:[42,38,28,22,55],backgroundColor:'rgba(45,184,122,0.2)',borderColor:'#2DB87A',borderWidth:1.5,borderRadius:3}
       ]},
       options:{responsive:true,maintainAspectRatio:false,layout:{padding:0},plugins:{legend:{labels:{font:{size:10,family:'Plus Jakarta Sans'},color:'#6B7280'}}},
-        scales:{x:{grid:{display:false},ticks:TK},y:{grid:{color:GR},ticks:TK}}}});
+        scales:{x:{grid:{display:false},ticks:TK},y:{grid:{color:GR},ticks:TK,beginAtZero:true}}}});
 
     mc('cRecovery', {type:'bar', data:{
       labels:['Current manual','With auto-rep'],
@@ -716,13 +716,13 @@ function initCharts(p) {
 
 // TOUR
 var STEPS = [
-  {title:'Welcome to Zuora Disputes',body:'Your chargeback command center built natively inside Zuora. Monitor dispute health, fight chargebacks, and recover lost revenue.',target:null},
-  {title:'Your chargeback health at a glance',body:'Five KPI cards show your CB ratio, total chargebacks, uncontested revenue lost, win rate, and recovered revenue — all color-coded red, yellow, or green based on health.',target:null},
-  {title:'You are losing $47,200/month',body:'189 chargebacks were never contested. That revenue is gone forever — unless you activate auto-representment to fight them automatically.',target:null},
-  {title:'Fraud patterns: geography and reason codes',body:'72% of your chargebacks come from the US and 10.4 Fraud is the top reason code. Use these charts to spot patterns and prevent future disputes.',target:null},
-  {title:'Fight cases before deadlines',body:'Every open case has a hard deadline. Cases marked with fire expire within 7 days. After expiry the money is gone. Click Fight on any row to submit evidence.',target:null},
-  {title:'Navigate to any section',body:'Use the Disputes sidebar to access Case Management, ERT Notifications, Alerts, Reports, Webhooks, and API Connect.',target:'#sub-disputes'},
-  {title:'Activate auto-representment',body:'Go to API Connect to see pricing and activate automatic chargeback recovery. First month free. Average 68% win rate. Zero manual effort.',target:null}
+  {title:'Welcome to Zuora Disputes',body:'Your chargeback command center built natively inside Zuora. Monitor dispute health, fight chargebacks, and recover lost revenue.',target:'#topbar',side:'below'},
+  {title:'Your chargeback health at a glance',body:'Five KPI cards show your CB ratio, total chargebacks, uncontested revenue lost, win rate, and recovered revenue — all color-coded red, yellow, or green.',target:'#view-overview .krow',side:'below'},
+  {title:'You are losing $47,200/month',body:'189 chargebacks were never contested. That revenue is gone forever — unless you activate auto-representment to fight them automatically.',target:'#view-overview .upbanner',side:'below'},
+  {title:'Trend & outcome charts',body:'The trend chart shows your CB ratio climbing toward Visa's 1.0% limit. The donut shows 66% of disputes go uncontested — that is revenue you never tried to recover.',target:'#view-overview .grid.g21',side:'below'},
+  {title:'Fight cases before deadlines',body:'Every open case has a hard deadline — marked in red with fire. After expiry the money is gone forever. Click Fight to submit evidence on any open case.',target:'#tRecent',side:'above'},
+  {title:'Navigate all 7 sections',body:'Use Disputes in the sidebar to access Case Management, ERT Notifications, Alerts, Reports, Webhooks, and API Connect.',target:'#sub-disputes',side:'right'},
+  {title:'Activate auto-representment',body:'Go to API Connect to see pricing and activate automatic chargeback recovery. First month free. Average 68% win rate. Zero manual effort.',target:'#topbar',side:'below'}
 ];
 
 var TOV = document.getElementById('tour-ov');
@@ -741,38 +741,42 @@ function renderTour(i) {
   var backHtml = i > 0 ? '<button class="tour-back" onclick="prevTour()">← Back</button> ' : '';
   TNUM.innerHTML = backHtml + (i+1) + ' / ' + STEPS.length;
   TNEXT.textContent = i === STEPS.length - 1 ? 'Get started' : 'Next';
+  TC.className = 'tour-card';
 
   if (s.target) {
     var el = document.querySelector(s.target);
     if (el) {
-      var r = el.getBoundingClientRect();
-      var P = 4;
-      TSPOT.style.cssText = 'left:'+(r.left-P)+'px;top:'+(r.top-P)+'px;width:'+(r.width+P*2)+'px;height:'+(r.height+P*2)+'px';
-      var cw = 308;
-      var ch = 200;
-      var margin = 16;
-      var ww = window.innerWidth;
-      var wh = window.innerHeight;
-      TC.className = 'tour-card';
-      // Try right side first
-      if (r.right + margin + cw < ww) {
-        TC.classList.add('pos-right');
-        TC.style.cssText = 'left:'+(r.right+margin)+'px;top:'+Math.max(8,Math.min(r.top, wh-ch-8))+'px;width:'+cw+'px';
-      } else if (r.left - margin - cw > 0) {
-        // Left side
-        TC.classList.add('pos-left');
-        TC.style.cssText = 'left:'+(r.left-margin-cw)+'px;top:'+Math.max(8,Math.min(r.top, wh-ch-8))+'px;width:'+cw+'px';
-      } else {
-        // Below
-        TC.classList.add('pos-below');
-        TC.style.cssText = 'left:'+Math.max(8,Math.min(r.left, ww-cw-8))+'px;top:'+(r.bottom+margin)+'px;width:'+cw+'px';
-      }
+      // Scroll into view first
+      el.scrollIntoView({block:'nearest', behavior:'smooth'});
+      setTimeout(function() {
+        var r = el.getBoundingClientRect();
+        var P = 5;
+        var cw = 300;
+        var margin = 14;
+        var ww = window.innerWidth;
+        var wh = window.innerHeight;
+        TSPOT.style.cssText = 'left:'+(r.left-P)+'px;top:'+(r.top-P)+'px;width:'+(r.width+P*2)+'px;height:'+(r.height+P*2)+'px';
+        var side = s.side || 'auto';
+        // Place card based on hint
+        if (side === 'right' && r.right + margin + cw < ww) {
+          TC.classList.add('pos-right');
+          TC.style.cssText = 'left:'+(r.right+margin)+'px;top:'+Math.max(60,Math.min(r.top, wh-220))+'px;width:'+cw+'px;position:fixed';
+        } else if (side === 'above' && r.top - margin - 220 > 60) {
+          TC.classList.add('pos-above');
+          TC.style.cssText = 'left:'+Math.max(8,Math.min(r.left, ww-cw-8))+'px;top:'+(r.top-margin-210)+'px;width:'+cw+'px;position:fixed';
+        } else if (side === 'below' || r.top + r.height + margin + 220 < wh) {
+          TC.classList.add('pos-below');
+          TC.style.cssText = 'left:'+Math.max(8,Math.min(r.left, ww-cw-8))+'px;top:'+(r.bottom+margin)+'px;width:'+cw+'px;position:fixed';
+        } else {
+          // Default: bottom right corner, away from element
+          TC.style.cssText = 'right:20px;bottom:20px;width:'+cw+'px;position:fixed';
+        }
+      }, 100);
       return;
     }
   }
   TSPOT.style.cssText = 'left:0;top:0;width:0;height:0';
-  TC.className = 'tour-card';
-  TC.style.cssText = 'left:50%;top:50%;transform:translate(-50%,-50%);width:320px';
+  TC.style.cssText = 'left:50%;top:50%;transform:translate(-50%,-50%);width:320px;position:fixed';
 }
 
 function nextTour() {
