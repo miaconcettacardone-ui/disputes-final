@@ -4,14 +4,14 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>Zuora · Disputes</title>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
   --tb:#1A1F2E;--sb:#0D1B2E;--sbh:rgba(255,255,255,.07);
-  --teal:#00B388;--teal2:#009970;--teal-bg:#E8F8F2;--teal-bd:#9FD9C0;
-  --gdot:#00B388;
+  --teal:#00B37D;--teal2:#009968;--teal-bg:#E8F8F2;--teal-bd:#9FD9C0;
+  --gdot:#00C27A;
   --cg:#2DB87A;--cgf:rgba(45,184,122,0.12);
   --tour-bg:#C5EDE4;--tour-title:#0D1F3C;--tour-body:#1a3d30;--tour-btn:#1C2B3A;
   --white:#fff;--bg:#F4F5F7;--card:#fff;
@@ -26,7 +26,7 @@
   --r:6px;--r2:8px;
   --sh:0 1px 3px rgba(0,0,0,.07),0 1px 2px rgba(0,0,0,.04);
   --sh2:0 4px 16px rgba(0,0,0,.1);
-  --f:"DM Sans","Plus Jakarta Sans",system-ui,sans-serif;
+  --f:"Plus Jakarta Sans",system-ui,sans-serif;
   --mono:"JetBrains Mono",monospace;
 }
 html,body{height:100%;background:var(--bg);color:var(--t1);font-family:var(--f);font-size:13px;line-height:1.5;overflow:hidden}
@@ -35,7 +35,7 @@ html,body{height:100%;background:var(--bg);color:var(--t1);font-family:var(--f);
 .tb-menu{width:28px;height:28px;display:flex;align-items:center;justify-content:center;cursor:pointer;border-radius:4px;color:rgba(255,255,255,.55)}
 .tb-menu:hover{background:rgba(255,255,255,.08)}
 .tb-logo{display:flex;align-items:center;gap:7px;margin-right:8px;text-decoration:none}
-.tb-logo-z{width:28px;height:22px}
+.tb-logo-z{width:22px;height:22px}
 .tb-logo-name{font-size:14px;font-weight:800;color:#fff;letter-spacing:.5px}
 .tb-logo-prod{font-size:11px;color:var(--teal);margin-left:1px;font-weight:500}
 .tb-search{flex:1;max-width:360px;background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.1);border-radius:var(--r);padding:0 12px;height:32px;display:flex;align-items:center;gap:8px}
@@ -182,7 +182,6 @@ tbody td strong{color:var(--t1);font-weight:600}
 .tour-card.pos-right::before{content:"";position:absolute;top:22px;left:-8px;width:0;height:0;border-top:8px solid transparent;border-bottom:8px solid transparent;border-right:8px solid var(--tour-bg)}
 .tour-card.pos-left::before{content:"";position:absolute;top:22px;right:-8px;width:0;height:0;border-top:8px solid transparent;border-bottom:8px solid transparent;border-left:8px solid var(--tour-bg)}
 .tour-card.pos-below::before{content:"";position:absolute;top:-8px;left:22px;width:0;height:0;border-left:8px solid transparent;border-right:8px solid transparent;border-bottom:8px solid var(--tour-bg)}
-.tour-card.pos-above::after{content:"";position:absolute;bottom:-8px;left:22px;width:0;height:0;border-left:8px solid transparent;border-right:8px solid transparent;border-top:8px solid var(--tour-bg)}
 .tour-num{font-size:11px;color:var(--tour-body);margin-bottom:8px;display:flex;align-items:center;gap:8px}
 .tour-back{background:none;border:none;cursor:pointer;color:var(--tour-body);font-size:14px;padding:0;font-family:var(--f)}
 .tour-title{font-size:15px;font-weight:800;color:var(--tour-title);margin-bottom:7px;line-height:1.3}
@@ -201,11 +200,8 @@ tbody td strong{color:var(--t1);font-weight:600}
 <div id="topbar">
   <div class="tb-menu"><svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></div>
   <a class="tb-logo" href="#" onclick="go('overview');return false">
-    <svg class="tb-logo-z" viewBox="0 0 36 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0 0h36L22 28H0V0z" fill="#00B388"/>
-      <path d="M36 28H0L15 0h21v28z" fill="rgba(0,0,0,.15)"/>
-    </svg>
-    <span class="tb-logo-name" style="font-size:14px;font-weight:800;letter-spacing:1.5px;font-family:'Plus Jakarta Sans',sans-serif">ZUORA</span><span class="tb-logo-prod">billing</span>
+    <svg class="tb-logo-z" viewBox="0 0 22 22" fill="none"><rect width="22" height="22" rx="4" fill="#00B37D"/><path d="M4 5h14L10.5 17H4V5z" fill="white"/><path d="M18 17H4L12 5h6v12z" fill="rgba(255,255,255,.25)"/></svg>
+    <span class="tb-logo-name">ZUORA</span><span class="tb-logo-prod">billing</span>
   </a>
   <div class="tb-search">
     <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
@@ -282,11 +278,11 @@ tbody td strong{color:var(--t1);font-weight:600}
     <div class="kcard"><div class="ks" style="background:var(--green)"></div><div class="kl">Revenue Recovered</div><div class="kv good">$23,100</div><div class="kd up">▲ $3,200 vs last period</div><div class="rmeter"><div class="rfill" style="width:32%;background:var(--cg)"></div></div><div class="kh">Potential w/ auto-rep: <strong style="color:var(--cg)">$68,400</strong></div></div>
   </div>
   <div class="grid g21">
-    <div class="card cp"><div class="ct">Chargeback volume &amp; ratio trend</div><div class="csub">Monthly — Jan 2025 → Mar 2025</div><div style="height:200px"><canvas id="cTrend"></canvas></div><div class="leg"><div class="li"><div class="ld" style="background:rgba(220,38,38,.3)"></div>CB count</div><div class="li"><div class="ld" style="background:var(--cg)"></div>CB ratio %</div></div></div>
-    <div class="card cp"><div class="ct">Dispute outcomes</div><div class="csub">Last 90 days</div><div style="height:170px"><canvas id="cOutcomes"></canvas></div><div class="leg" style="flex-direction:column;gap:5px;margin-top:8px"><div class="li"><div class="ld" style="background:#DC2626"></div>Uncontested — $47,200 (66%)</div><div class="li"><div class="ld" style="background:#F59E0B"></div>Contested, lost — $16,800 (23%)</div><div class="li"><div class="ld" style="background:#2DB87A"></div>Won / recovered — $23,100 (11%)</div></div></div>
+    <div class="card cp"><div class="ct">Chargeback volume &amp; ratio trend</div><div class="csub">Monthly — Jan 2025 → Mar 2025</div><div style="height:185px"><canvas id="cTrend"></canvas></div><div class="leg"><div class="li"><div class="ld" style="background:rgba(220,38,38,.3)"></div>CB count</div><div class="li"><div class="ld" style="background:var(--cg)"></div>CB ratio %</div></div></div>
+    <div class="card cp"><div class="ct">Dispute outcomes</div><div class="csub">Last 90 days</div><div style="height:150px"><canvas id="cOutcomes"></canvas></div><div class="leg" style="flex-direction:column;gap:5px;margin-top:8px"><div class="li"><div class="ld" style="background:#DC2626"></div>Uncontested — $47,200 (66%)</div><div class="li"><div class="ld" style="background:#F59E0B"></div>Contested, lost — $16,800 (23%)</div><div class="li"><div class="ld" style="background:#2DB87A"></div>Won / recovered — $23,100 (11%)</div></div></div>
   </div>
   <div class="grid g3">
-    <div class="card cp"><div class="ct">Top reason codes</div><div class="csub">By volume — last 90 days</div><div style="height:175px"><canvas id="cReasons"></canvas></div></div>
+    <div class="card cp"><div class="ct">Top reason codes</div><div class="csub">By volume — last 90 days</div><div style="height:165px"><canvas id="cReasons"></canvas></div></div>
     <div class="card cp"><div class="ct">Fraud by geography</div><div class="csub">Chargebacks by origin country</div>
       <div class="geo-item"><span style="font-size:15px;flex-shrink:0">🇺🇸</span><div style="flex:1"><div style="font-size:12px;font-weight:600;color:var(--t1)">United States</div><div class="geo-bar"><div class="geo-fill" style="width:72%;background:var(--red)"></div></div></div><span style="font-size:11px;color:var(--red);font-weight:600;width:32px;text-align:right">72%</span></div>
       <div class="geo-item"><span style="font-size:15px;flex-shrink:0">🇬🇧</span><div style="flex:1"><div style="font-size:12px;font-weight:600;color:var(--t1)">United Kingdom</div><div class="geo-bar"><div class="geo-fill" style="width:12%;background:var(--yellow)"></div></div></div><span style="font-size:11px;color:var(--yellow);font-weight:600;width:32px;text-align:right">12%</span></div>
@@ -307,8 +303,8 @@ tbody td strong{color:var(--t1);font-weight:600}
     </div>
   </div>
   <div class="grid g2">
-    <div class="card cp"><div class="ct">CB rate by product / plan</div><div class="csub">Which products drive the most disputes</div><div style="height:175px"><canvas id="cProducts"></canvas></div></div>
-    <div class="card cp"><div class="ct">Revenue recovery opportunity</div><div class="csub">Current vs auto-representment potential</div><div style="height:130px"><canvas id="cRecovery"></canvas></div>
+    <div class="card cp"><div class="ct">CB rate by product / plan</div><div class="csub">Which products drive the most disputes</div><div style="height:165px"><canvas id="cProducts"></canvas></div></div>
+    <div class="card cp"><div class="ct">Revenue recovery opportunity</div><div class="csub">Current vs auto-representment potential</div><div style="height:165px"><canvas id="cRecovery"></canvas></div>
       <div style="margin-top:10px;background:linear-gradient(135deg,#0D1B2E,#1a3a2e);border-radius:var(--r);padding:10px 13px">
         <div style="font-size:11.5px;font-weight:700;color:#fff;margin-bottom:3px">💡 At our <span style="color:var(--gdot)">68% win rate</span> you could recover <span style="color:var(--gdot)">$68,400/mo</span></div>
         <button class="btn btn-up btn-sm" style="width:100%;justify-content:center;margin-top:8px" onclick="go('api')">⚡ Activate Now — First Month Free</button>
@@ -362,7 +358,7 @@ tbody td strong{color:var(--t1);font-weight:600}
       <div style="margin-top:12px;display:flex;gap:8px"><button class="btn btn-g btn-sm">+ Upload evidence</button><button class="btn btn-t btn-sm">Submit to Visa →</button></div>
     </div>
     <div class="card cp"><div class="ct">Win probability estimator</div><div class="csub">Based on reason code, evidence &amp; network rules</div>
-      <div style="padding:10px;background:var(--gbg);border:1px solid var(--gbd);border-radius:var(--r);margin-bottom:8px;text-align:center">
+      <div style="padding:14px;background:var(--gbg);border:1px solid var(--gbd);border-radius:var(--r);margin-bottom:10px;text-align:center">
         <div style="font-size:36px;font-weight:800;color:var(--green)">74%</div>
         <div style="font-size:12px;color:var(--green);font-weight:600">Estimated win probability</div>
         <div style="font-size:11px;color:var(--t3);margin-top:3px">CB-00291 · Acme Corp · Visa 10.4</div>
@@ -377,7 +373,7 @@ tbody td strong{color:var(--t1);font-weight:600}
 
 <!-- ERT -->
 <div class="view" id="view-ert">
-  <div class="ph"><div><div class="pt">ERT Notifications</div><div class="ps">Early Resolution Tool — pre-dispute signals from Visa &amp; Mastercard</div></div></div>
+  <div class="ph"><div><div class="pt">ERT Notifications</div><div class="ps">Early Resolution Tool — pre-dispute signals from Visa &amp; Mastercard</div></div><div class="pa"><button class="btn btn-up" onclick="go('api')">⚡ Enable Auto-Refund Rules</button></div></div>
   <div style="background:linear-gradient(135deg,#0D1B2E,#1a3a2e);border-radius:var(--r2);padding:11px 18px;margin-bottom:14px;display:flex;align-items:center;gap:12px">
     <span style="font-size:18px">⚡</span>
     <span style="font-size:12.5px;color:rgba(255,255,255,.8);flex:1">ERT gives you a <strong style="color:var(--gdot)">72-hour window</strong> to refund before a dispute escalates. Auto-refund rules handle this automatically, preventing chargebacks.</span>
@@ -400,7 +396,7 @@ tbody td strong{color:var(--t1);font-weight:600}
   </div>
   <div class="card cp">
     <div class="ct">ERT resolution history</div><div class="csub">Last 14 days</div>
-    <div style="height:170px"><canvas id="cErt"></canvas></div>
+    <div style="height:150px"><canvas id="cErt"></canvas></div>
     <div class="leg"><div class="li"><div class="ld" style="background:var(--cg)"></div>Resolved (CB prevented)</div><div class="li"><div class="ld" style="background:var(--red)"></div>Escalated to chargeback</div></div>
   </div>
 </div>
@@ -462,8 +458,8 @@ tbody td strong{color:var(--t1);font-weight:600}
     </div>
   </div>
   <div class="grid g2">
-    <div class="card cp"><div class="ct">Win/loss trend</div><div class="csub">Monthly contested case outcomes — last 6 months</div><div style="height:175px"><canvas id="cWinLoss"></canvas></div><div class="leg"><div class="li"><div class="ld" style="background:var(--cg)"></div>Won</div><div class="li"><div class="ld" style="background:var(--red)"></div>Lost</div><div class="li"><div class="ld" style="background:var(--yellow)"></div>Pending</div></div></div>
-    <div class="card cp"><div class="ct">CB volume by card network</div><div class="csub">Last 90 days — dispute distribution</div><div style="height:175px"><canvas id="cNetwork"></canvas></div><div class="leg"><div class="li"><div class="ld" style="background:#1D4ED8"></div>Visa 52%</div><div class="li"><div class="ld" style="background:#EA580C"></div>Mastercard 31%</div><div class="li"><div class="ld" style="background:#7C3AED"></div>Amex 12%</div><div class="li"><div class="ld" style="background:#D1D5DB"></div>Discover 5%</div></div></div>
+    <div class="card cp"><div class="ct">Win/loss trend</div><div class="csub">Monthly contested case outcomes — last 6 months</div><div style="height:155px"><canvas id="cWinLoss"></canvas></div><div class="leg"><div class="li"><div class="ld" style="background:var(--cg)"></div>Won</div><div class="li"><div class="ld" style="background:var(--red)"></div>Lost</div><div class="li"><div class="ld" style="background:var(--yellow)"></div>Pending</div></div></div>
+    <div class="card cp"><div class="ct">CB volume by card network</div><div class="csub">Last 90 days — dispute distribution</div><div style="height:155px"><canvas id="cNetwork"></canvas></div><div class="leg"><div class="li"><div class="ld" style="background:#1D4ED8"></div>Visa 52%</div><div class="li"><div class="ld" style="background:#EA580C"></div>Mastercard 31%</div><div class="li"><div class="ld" style="background:#7C3AED"></div>Amex 12%</div><div class="li"><div class="ld" style="background:#D1D5DB"></div>Discover 5%</div></div></div>
   </div>
 </div>
 
@@ -544,10 +540,6 @@ tbody td strong{color:var(--t1);font-weight:600}
       <div class="sr"><span style="font-size:12px;color:var(--t2)">✅ SLA guarantee (99.9%)</span></div>
       <button class="btn btn-n" style="width:100%;justify-content:center;margin-top:12px">Talk to sales →</button>
     </div>
-  </div>
-  <div class="grid g2" style="margin-bottom:16px">
-    <div class="card cp"><div class="ct">Recovery: manual vs auto-representment</div><div class="csub">Monthly revenue recovered — same dispute volume</div><div style="height:180px"><canvas id="cApiCompare"></canvas></div><div class="leg"><div class="li"><div class="ld" style="background:#F59E0B"></div>Manual (current)</div><div class="li"><div class="ld" style="background:#00B388"></div>With auto-rep</div></div></div>
-    <div class="card cp"><div class="ct">Win rate improvement over time</div><div class="csub">Industry benchmark vs auto-representment customers</div><div style="height:180px"><canvas id="cApiWinrate"></canvas></div><div class="leg"><div class="li"><div class="ld" style="background:#E5E7EB"></div>Industry avg</div><div class="li"><div class="ld" style="background:#00B388"></div>Auto-rep customers</div></div></div>
   </div>
   <div class="grid g2">
     <div class="card cp">
@@ -640,7 +632,7 @@ function initCharts(p) {
       ]},
       options:{responsive:true,maintainAspectRatio:false,layout:{padding:0},plugins:{legend:{display:false}},
         scales:{x:{grid:{display:false},ticks:TK},
-          y:{grid:{color:GR},ticks:{color:'#9CA3AF',font:{size:10,family:'Plus Jakarta Sans'},callback:function(v){return v+' CBs';}},position:'left',min:150,suggestedMax:310},
+          y:{grid:{color:GR},ticks:{color:'#9CA3AF',font:{size:10,family:'Plus Jakarta Sans'},callback:function(v){return v+' CBs';}},position:'left',min:160,max:320},
           y2:{grid:{display:false},ticks:{color:'#9CA3AF',font:{size:10,family:'Plus Jakarta Sans'},callback:function(v){return v+'%';}},position:'right',min:0.6,max:1.2}}}});
 
     mc('cOutcomes', {type:'doughnut', data:{labels:['Uncontested','Contested lost','Won'],
@@ -650,8 +642,8 @@ function initCharts(p) {
     mc('cReasons', {type:'bar', data:{
       labels:['10.4 Fraud','13.1 Not rcvd','4853 Service','10.5 Visa','41 Cancelled','Other'],
       datasets:[{data:[112,58,44,31,24,15],backgroundColor:['#DC2626','#EF4444','#F97316','#F59E0B','#FCD34D','#D1D5DB'],borderRadius:4}]},
-      options:{responsive:true,maintainAspectRatio:false,layout:{padding:0},plugins:{legend:{display:false}},indexAxis:'y',
-        scales:{x:{grid:{color:GR},ticks:TK,beginAtZero:true},y:{grid:{display:false},ticks:TK}}}});
+      options:{responsive:true,maintainAspectRatio:false,indexAxis:'y',layout:{padding:0},plugins:{legend:{display:false}},
+        scales:{x:{grid:{color:GR},ticks:TK},y:{grid:{display:false},ticks:TK}}}});
 
     mc('cProducts', {type:'bar', data:{
       labels:['Enterprise','Professional','Starter','API Usage','Add-ons'],
@@ -660,7 +652,7 @@ function initCharts(p) {
         {label:'Win rate',data:[42,38,28,22,55],backgroundColor:'rgba(45,184,122,0.2)',borderColor:'#2DB87A',borderWidth:1.5,borderRadius:3}
       ]},
       options:{responsive:true,maintainAspectRatio:false,layout:{padding:0},plugins:{legend:{labels:{font:{size:10,family:'Plus Jakarta Sans'},color:'#6B7280'}}},
-        scales:{x:{grid:{display:false},ticks:TK},y:{grid:{color:GR},ticks:TK,beginAtZero:true}}}});
+        scales:{x:{grid:{display:false},ticks:TK},y:{grid:{color:GR},ticks:TK}}}});
 
     mc('cRecovery', {type:'bar', data:{
       labels:['Current manual','With auto-rep'],
@@ -680,24 +672,6 @@ function initCharts(p) {
         scales:{x:{stacked:true,grid:{display:false},ticks:TK},y:{stacked:true,grid:{color:GR},ticks:TK,min:0,max:8}}}});
   }
 
-  if (p === 'api') {
-    mc('cApiCompare', {type:'bar', data:{
-      labels:['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],
-      datasets:[
-        {label:'Manual',data:[8200,9100,8800,9400,8600,9200,9800,9100,9600,8900,9300,9700],backgroundColor:'#F59E0B',borderRadius:3},
-        {label:'Auto-rep',data:[31200,34600,33500,35800,32700,35100,37300,34600,36500,33900,35400,36900],backgroundColor:'#00B388',borderRadius:3}
-      ]},
-      options:{responsive:true,maintainAspectRatio:false,layout:{padding:0},plugins:{legend:{display:false}},
-        scales:{x:{grid:{display:false},ticks:TK},y:{grid:{color:GR},ticks:{color:'#9CA3AF',font:{size:10,family:'Plus Jakarta Sans'},callback:function(v){return '$'+Math.round(v/1000)+'K';}},beginAtZero:true}}}});
-    mc('cApiWinrate', {type:'line', data:{
-      labels:['Month 1','Month 2','Month 3','Month 4','Month 5','Month 6'],
-      datasets:[
-        {label:'Industry avg',data:[28,29,28,30,29,30],borderColor:'#D1D5DB',backgroundColor:'transparent',tension:0.4,borderWidth:2,pointRadius:3,borderDash:[4,4]},
-        {label:'Auto-rep',data:[34,48,57,63,66,68],borderColor:'#00B388',backgroundColor:'rgba(0,179,136,0.1)',tension:0.4,fill:true,borderWidth:2.5,pointRadius:4,pointBackgroundColor:'#00B388'}
-      ]},
-      options:{responsive:true,maintainAspectRatio:false,layout:{padding:0},plugins:{legend:{display:false}},
-        scales:{x:{grid:{display:false},ticks:TK},y:{grid:{color:GR},ticks:{color:'#9CA3AF',font:{size:10,family:'Plus Jakarta Sans'},callback:function(v){return v+'%';}},min:20,max:75}}}});
-  }
   if (p === 'reports') {
     mc('cWinLoss', {type:'bar', data:{labels:['Oct','Nov','Dec','Jan','Feb','Mar'],
       datasets:[
@@ -716,13 +690,13 @@ function initCharts(p) {
 
 // TOUR
 var STEPS = [
-  {title:'Welcome to Zuora Disputes',body:'Your chargeback command center built natively inside Zuora. Monitor dispute health, fight chargebacks, and recover lost revenue.',target:'#topbar',side:'below'},
-  {title:'Your chargeback health at a glance',body:'Five KPI cards show your CB ratio, total chargebacks, uncontested revenue lost, win rate, and recovered revenue — all color-coded red, yellow, or green.',target:'#view-overview .krow',side:'below'},
-  {title:'You are losing $47,200/month',body:'189 chargebacks were never contested. That revenue is gone forever — unless you activate auto-representment to fight them automatically.',target:'#view-overview .upbanner',side:'below'},
-  {title:'Trend & outcome charts',body:'The trend chart shows your CB ratio climbing toward Visa's 1.0% limit. The donut shows 66% of disputes go uncontested — that is revenue you never tried to recover.',target:'#view-overview .grid.g21',side:'below'},
-  {title:'Fight cases before deadlines',body:'Every open case has a hard deadline — marked in red with fire. After expiry the money is gone forever. Click Fight to submit evidence on any open case.',target:'#tRecent',side:'above'},
-  {title:'Navigate all 7 sections',body:'Use Disputes in the sidebar to access Case Management, ERT Notifications, Alerts, Reports, Webhooks, and API Connect.',target:'#sub-disputes',side:'right'},
-  {title:'Activate auto-representment',body:'Go to API Connect to see pricing and activate automatic chargeback recovery. First month free. Average 68% win rate. Zero manual effort.',target:'#topbar',side:'below'}
+  {title:'Welcome to Zuora Disputes',body:'This is your chargeback command center, built natively inside Zuora. Monitor your dispute health, fight chargebacks, and see where you are losing revenue.',target:null},
+  {title:'Your chargeback health score',body:'Your CB-to-transaction ratio is 1.02% — above Visa\'s 1.0% threshold. The red indicators show where you need to act immediately to avoid the Visa Dispute Monitoring Program.',target:'#view-overview .krow'},
+  {title:'Revenue you are losing right now',body:'$47,200/month in chargebacks were never contested. That money is gone forever unless you activate auto-representment.',target:'#view-overview .upbanner'},
+  {title:'Fraud by geography and reason code',body:'72% of your chargebacks originate from the US, and 10.4 Fraud is your number one reason code. These charts help you identify patterns and prevent future disputes.',target:'#view-overview .grid.g3'},
+  {title:'Fight cases before deadlines expire',body:'Open cases have hard deadlines. After they expire the money is gone. Cases marked with fire expire within 7 days. Click Fight to submit evidence.',target:'#tRecent'},
+  {title:'Navigate to any section',body:'Use the sidebar under Disputes to access Case Management, ERT Notifications, Alerts, Reports, Webhooks, and API Connect.',target:'#sub-disputes'},
+  {title:'Activate auto-representment',body:'Click API Connect to see pricing and activate automatic chargeback recovery. First month free. Average 68% win rate. Zero manual effort.',target:null}
 ];
 
 var TOV = document.getElementById('tour-ov');
@@ -741,42 +715,38 @@ function renderTour(i) {
   var backHtml = i > 0 ? '<button class="tour-back" onclick="prevTour()">← Back</button> ' : '';
   TNUM.innerHTML = backHtml + (i+1) + ' / ' + STEPS.length;
   TNEXT.textContent = i === STEPS.length - 1 ? 'Get started' : 'Next';
-  TC.className = 'tour-card';
 
   if (s.target) {
     var el = document.querySelector(s.target);
     if (el) {
-      // Scroll into view first
-      el.scrollIntoView({block:'nearest', behavior:'smooth'});
-      setTimeout(function() {
-        var r = el.getBoundingClientRect();
-        var P = 5;
-        var cw = 300;
-        var margin = 14;
-        var ww = window.innerWidth;
-        var wh = window.innerHeight;
-        TSPOT.style.cssText = 'left:'+(r.left-P)+'px;top:'+(r.top-P)+'px;width:'+(r.width+P*2)+'px;height:'+(r.height+P*2)+'px';
-        var side = s.side || 'auto';
-        // Place card based on hint
-        if (side === 'right' && r.right + margin + cw < ww) {
-          TC.classList.add('pos-right');
-          TC.style.cssText = 'left:'+(r.right+margin)+'px;top:'+Math.max(60,Math.min(r.top, wh-220))+'px;width:'+cw+'px;position:fixed';
-        } else if (side === 'above' && r.top - margin - 220 > 60) {
-          TC.classList.add('pos-above');
-          TC.style.cssText = 'left:'+Math.max(8,Math.min(r.left, ww-cw-8))+'px;top:'+(r.top-margin-210)+'px;width:'+cw+'px;position:fixed';
-        } else if (side === 'below' || r.top + r.height + margin + 220 < wh) {
-          TC.classList.add('pos-below');
-          TC.style.cssText = 'left:'+Math.max(8,Math.min(r.left, ww-cw-8))+'px;top:'+(r.bottom+margin)+'px;width:'+cw+'px;position:fixed';
-        } else {
-          // Default: bottom right corner, away from element
-          TC.style.cssText = 'right:20px;bottom:20px;width:'+cw+'px;position:fixed';
-        }
-      }, 100);
+      var r = el.getBoundingClientRect();
+      var P = 4;
+      TSPOT.style.cssText = 'left:'+(r.left-P)+'px;top:'+(r.top-P)+'px;width:'+(r.width+P*2)+'px;height:'+(r.height+P*2)+'px';
+      var cw = 308;
+      var ch = 200;
+      var margin = 16;
+      var ww = window.innerWidth;
+      var wh = window.innerHeight;
+      TC.className = 'tour-card';
+      // Try right side first
+      if (r.right + margin + cw < ww) {
+        TC.classList.add('pos-right');
+        TC.style.cssText = 'left:'+(r.right+margin)+'px;top:'+Math.max(8,Math.min(r.top, wh-ch-8))+'px;width:'+cw+'px';
+      } else if (r.left - margin - cw > 0) {
+        // Left side
+        TC.classList.add('pos-left');
+        TC.style.cssText = 'left:'+(r.left-margin-cw)+'px;top:'+Math.max(8,Math.min(r.top, wh-ch-8))+'px;width:'+cw+'px';
+      } else {
+        // Below
+        TC.classList.add('pos-below');
+        TC.style.cssText = 'left:'+Math.max(8,Math.min(r.left, ww-cw-8))+'px;top:'+(r.bottom+margin)+'px;width:'+cw+'px';
+      }
       return;
     }
   }
   TSPOT.style.cssText = 'left:0;top:0;width:0;height:0';
-  TC.style.cssText = 'left:50%;top:50%;transform:translate(-50%,-50%);width:320px;position:fixed';
+  TC.className = 'tour-card';
+  TC.style.cssText = 'left:50%;top:50%;transform:translate(-50%,-50%);width:320px';
 }
 
 function nextTour() {
