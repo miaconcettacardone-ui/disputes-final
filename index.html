@@ -560,19 +560,6 @@ tbody td strong{color:var(--t1);font-weight:600}
 
   </div></div></div></div>
 
-<!-- TOUR -->
-<div id="tour-ov">
-  <div class="tour-spot" id="tspot"></div>
-  <div class="tour-card" id="tcard">
-    <div class="tour-num" id="tnum"></div>
-    <div class="tour-title" id="ttitle"></div>
-    <div class="tour-body" id="tbody"></div>
-    <div class="tour-footer">
-      <button class="tour-skip" id="tskip">Skip</button>
-      <button class="tour-next" id="tnext">Next</button>
-    </div>
-    <div class="tour-brand">Powered by Zuora Disputes</div>
-  </div>
 </div>
 
 <script>
@@ -688,87 +675,8 @@ function initCharts(p) {
   }
 }
 
-// TOUR
-var STEPS = [
-  {title:'Welcome to Zuora Disputes',body:'This is your chargeback command center, built natively inside Zuora. Monitor your dispute health, fight chargebacks, and see where you are losing revenue.',target:null},
-  {title:'Your chargeback health score',body:'Your CB-to-transaction ratio is 1.02% — above Visa\'s 1.0% threshold. The red indicators show where you need to act immediately to avoid the Visa Dispute Monitoring Program.',target:'#view-overview .krow'},
-  {title:'Revenue you are losing right now',body:'$47,200/month in chargebacks were never contested. That money is gone forever unless you activate auto-representment.',target:'#view-overview .upbanner'},
-  {title:'Fraud by geography and reason code',body:'72% of your chargebacks originate from the US, and 10.4 Fraud is your number one reason code. These charts help you identify patterns and prevent future disputes.',target:'#view-overview .grid.g3'},
-  {title:'Fight cases before deadlines expire',body:'Open cases have hard deadlines. After they expire the money is gone. Cases marked with fire expire within 7 days. Click Fight to submit evidence.',target:'#tRecent'},
-  {title:'Navigate to any section',body:'Use the sidebar under Disputes to access Case Management, ERT Notifications, Alerts, Reports, Webhooks, and API Connect.',target:'#sub-disputes'},
-  {title:'Activate auto-representment',body:'Click API Connect to see pricing and activate automatic chargeback recovery. First month free. Average 68% win rate. Zero manual effort.',target:null}
-];
-
-var TOV = document.getElementById('tour-ov');
-var TSPOT = document.getElementById('tspot');
-var TTITLE = document.getElementById('ttitle');
-var TBODY = document.getElementById('tbody');
-var TNUM = document.getElementById('tnum');
-var TNEXT = document.getElementById('tnext');
-var TSKIP = document.getElementById('tskip');
-
-function renderTour(i) {
-  var s = STEPS[i];
-  var TC = document.getElementById('tcard');
-  TTITLE.textContent = s.title;
-  TBODY.textContent = s.body;
-  var backHtml = i > 0 ? '<button class="tour-back" onclick="prevTour()">← Back</button> ' : '';
-  TNUM.innerHTML = backHtml + (i+1) + ' / ' + STEPS.length;
-  TNEXT.textContent = i === STEPS.length - 1 ? 'Get started' : 'Next';
-
-  if (s.target) {
-    var el = document.querySelector(s.target);
-    if (el) {
-      var r = el.getBoundingClientRect();
-      var P = 4;
-      TSPOT.style.cssText = 'left:'+(r.left-P)+'px;top:'+(r.top-P)+'px;width:'+(r.width+P*2)+'px;height:'+(r.height+P*2)+'px';
-      var cw = 308;
-      var ch = 200;
-      var margin = 16;
-      var ww = window.innerWidth;
-      var wh = window.innerHeight;
-      TC.className = 'tour-card';
-      // Try right side first
-      if (r.right + margin + cw < ww) {
-        TC.classList.add('pos-right');
-        TC.style.cssText = 'left:'+(r.right+margin)+'px;top:'+Math.max(8,Math.min(r.top, wh-ch-8))+'px;width:'+cw+'px';
-      } else if (r.left - margin - cw > 0) {
-        // Left side
-        TC.classList.add('pos-left');
-        TC.style.cssText = 'left:'+(r.left-margin-cw)+'px;top:'+Math.max(8,Math.min(r.top, wh-ch-8))+'px;width:'+cw+'px';
-      } else {
-        // Below
-        TC.classList.add('pos-below');
-        TC.style.cssText = 'left:'+Math.max(8,Math.min(r.left, ww-cw-8))+'px;top:'+(r.bottom+margin)+'px;width:'+cw+'px';
-      }
-      return;
-    }
-  }
-  TSPOT.style.cssText = 'left:0;top:0;width:0;height:0';
-  TC.className = 'tour-card';
-  TC.style.cssText = 'left:50%;top:50%;transform:translate(-50%,-50%);width:320px';
-}
-
-function nextTour() {
-  if (STEP < STEPS.length - 1) { STEP++; renderTour(STEP); }
-  else { TOV.style.display = 'none'; }
-}
-
-function prevTour() {
-  if (STEP > 0) { STEP--; renderTour(STEP); }
-}
-
-function skipTour() { TOV.style.display = 'none'; }
-
-TNEXT.addEventListener('click', nextTour);
-TSKIP.addEventListener('click', skipTour);
-
-window.addEventListener('DOMContentLoaded', function() {
+window.addEventListener('load', function() {
   go('overview');
-  setTimeout(function() {
-    TOV.style.display = 'block';
-    renderTour(0);
-  }, 500);
 });
 </script>
 </body>
